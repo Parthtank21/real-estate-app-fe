@@ -1,8 +1,29 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "motion/react";
 import Image from "next/image";
+import { motion, Variants } from "motion/react";
+
+const discoverCardsData = [
+  {
+    imageSrc: "/landing-icon-wand.png",
+    title: "Search for Properties",
+    description:
+      "Browse through our extensive collection of rental properties in your desired location.",
+  },
+  {
+    imageSrc: "/landing-icon-calendar.png",
+    title: "Book Your Rental",
+    description:
+      "Once you've found the perfect rental property, easily book it online with just a few clicks.",
+  },
+  {
+    imageSrc: "/landing-icon-heart.png",
+    title: "Enjoy your New Home",
+    description:
+      "Move into your new rental property and start enjoying your dream home.",
+  },
+];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -44,26 +65,7 @@ export default function DiscoverSection() {
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 xl:gap-16 text-center">
-          {[
-            {
-              imageSrc: "/landing-icon-wand.png",
-              title: "Search for Properties",
-              description:
-                "Browse through our extensive collection of rental properties in your desired location.",
-            },
-            {
-              imageSrc: "/landing-icon-calendar.png",
-              title: "Book Your Rental",
-              description:
-                "Once you've found the perfect rental property, easily book it online with just a few clicks.",
-            },
-            {
-              imageSrc: "/landing-icon-heart.png",
-              title: "Enjoy your New Home",
-              description:
-                "Move into your new rental property and start enjoying your dream home.",
-            },
-          ].map((card, index) => (
+          {discoverCardsData.map((card, index) => (
             <motion.div key={index} variants={itemVariants}>
               <DiscoverCard {...card} />
             </motion.div>

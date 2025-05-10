@@ -1,9 +1,36 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { motion, Variants } from "motion/react";
+
+const featuresCardsData = [
+  {
+    imageSrc: "/landing-search3.png",
+    title: "Trustworthy and Verified Listings",
+    description:
+      "Discover the best rental options with user reviews and ratings.",
+    linkText: "Explore",
+    linkHref: "/explore",
+  },
+  {
+    imageSrc: "/landing-search2.png",
+    title: "Browse Rental Listings with Ease",
+    description:
+      "Get access to user reviews and ratings for a better understanding of rental options.",
+    linkText: "Search",
+    linkHref: "/search",
+  },
+  {
+    imageSrc: "/landing-search1.png",
+    title: "Simplify Your Rental Search with Advanced",
+    description:
+      "Find trustworthy and verified rental listings to ensure a hassle-free experience.",
+    linkText: "Discover",
+    linkHref: "/discover",
+  },
+];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -39,26 +66,15 @@ export default function FeaturesSection() {
           Quickly find the home you want using our effective search filters!
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 xl:gap-16">
-          {[0, 1, 2].map((index) => (
+          {featuresCardsData.map((card, index) => (
             <motion.div key={index} variants={itemVariants}>
               <FeatureCard
-                imageSrc={`/landing-search${3 - index}.png`}
-                title={
-                  [
-                    "Trustworthy and Verified Listings",
-                    "Browse Rental Listings with Ease",
-                    "Simplify Your Rental Search with Advanced",
-                  ][index]
-                }
-                description={
-                  [
-                    "Discover the best rental options with user reviews and ratings.",
-                    "Get access to user reviews and ratings for a better understanding of rental options.",
-                    "Find trustworthy and verified rental listings to ensure a hassle-free experience.",
-                  ][index]
-                }
-                linkText={["Explore", "Search", "Discover"][index]}
-                linkHref={["/explore", "/search", "/discover"][index]}
+                key={index}
+                imageSrc={card.imageSrc}
+                title={card.title}
+                description={card.description}
+                linkText={card.linkText}
+                linkHref={card.linkHref}
               />
             </motion.div>
           ))}
