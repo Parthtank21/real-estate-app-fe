@@ -7,7 +7,6 @@ import { useGetAuthUserQuery } from "@/state/api";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { data: authUser } = useGetAuthUserQuery();
-  console.log(authUser);
 
   return (
     <div className="h-full w-full">
