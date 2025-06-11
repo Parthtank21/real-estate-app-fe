@@ -15,7 +15,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (authUser) {
       const userRole = authUser.userRole?.toLowerCase();
-
       if (
         (userRole === "manager" && pathname.startsWith("/search")) ||
         (userRole === "manager" && pathname === "/")
@@ -24,6 +23,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       } else {
         setIsLoading(false);
       }
+    } else {
+      setIsLoading(false);
     }
   }, [authUser, router, pathname]);
 
