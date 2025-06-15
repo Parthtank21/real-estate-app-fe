@@ -10,6 +10,7 @@ import { cleanParams } from "@/lib/utils";
 import { useAppSelector } from "@/state/redux";
 import { NAVBAR_HEIGHT } from "@/lib/constants";
 import Map from "./Map";
+import Listings from "./Listings";
 
 export default function SearchPage() {
   const dispatch = useDispatch();
@@ -57,7 +58,9 @@ export default function SearchPage() {
           <FiltersFull />
         </div>
         <Map />
-        <div className="basis-4/12 overflow-y-auto">{/* <Listings /> */}</div>
+        <div className="basis-4/12 overflow-y-auto">
+          <Listings />
+        </div>
       </div>
     </div>
   );

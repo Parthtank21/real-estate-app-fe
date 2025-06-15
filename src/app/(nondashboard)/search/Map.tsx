@@ -39,7 +39,7 @@ export default function Map() {
     resizeMap();
 
     return () => map.remove();
-  });
+  }, [isLoading, isError, properties, filters.coordinates]);
 
   if (isLoading) return <>Loading...</>;
   if (isError || !properties) return <>Something went wrong</>;
